@@ -3,29 +3,39 @@ import React from "react";
 import Header from "./Header.js";
 
 function Products() {
-  const [product, setProduct] = useState([]);
+  const [count,setCount]=useState(0);
+  const [products, setProducts] = useState([]);
 
-  const getData = () => {
-    fetch("https://dummyjson.com/products")
-      .then((response) => response.json())
-      .then((data) => setProduct(data));
-  };
-
+  // Fetch products data from dummy API
   useEffect(() => {
-    getData();
+    fetch("https://dummyjson.com/products")
+    .then((response) => response.json())
+    .then((data) => setProduct(data.products));
   }, []);
-
+  
+  const handleAdd=()={
+    setCount(count+1);
+  }
   return (
     <>
       <div>
-        <Header />
-        {product.map((val) => {
-          return (
-            <div key={val.product[0].id}>
-              <h1>{val.product[0].item}</h1>
-            </div>
-          );
-        })}
+        <Header count={count}/>
+       <div className="productsaree">
+      {product?.map((value) => {
+        return (
+          <div className="saree" key={value.name}>
+            <img
+              src={value.images[1]}
+              alt="saree"
+              className="sareeimg"
+            />
+            <p>{value.description}</p>
+            <p>Rating :{value.rating}</p>
+            <p>₹ {value.price}</p>
+            <button onClick={handleAdd}>Add to Cart</button>
+          </div>
+        );
+      })}
       </div>
     </>
   );

@@ -6,9 +6,9 @@ import Register from "./Register";
 export default function Main(){
     return(
         <>
-        {/* <Login/>
-        <Products/> */}
-        <Register/>
+//         <Login/>
+        <Products/>
+//         <Register/>
         </>
     )
 }

@@ -13,7 +13,7 @@ function Products() {
     .then((data) => setProduct(data.products));
   }, []);
   
-  const handleAdd=()={
+  const handleAdd=()=>{
     setCount(count+1);
   }
   return (

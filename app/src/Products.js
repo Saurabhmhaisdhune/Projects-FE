@@ -10,7 +10,7 @@ function Products() {
   useEffect(() => {
     fetch("https://dummyjson.com/products")
     .then((response) => response.json())
-    .then((data) => setProduct(data.products));
+    .then((data) => setProducts(data.products));
   }, []);
   
   const handleAdd=()=>{

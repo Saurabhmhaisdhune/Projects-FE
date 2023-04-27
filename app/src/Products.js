@@ -17,11 +17,10 @@ function Products() {
     setCount(count+1);
   }
   return (
-    <>
-      <div>
+   <>
         <Header count={count}/>
        <div className="productsaree">
-      {product?.map((value) => {
+      {products?.map((value) => {
         return (
           <div className="saree" key={value.name}>
             <img
@@ -37,8 +36,9 @@ function Products() {
         );
       })}
       </div>
-    </>
-  );
-}
+</>
+)
+  }
 
 export default Products;
+
